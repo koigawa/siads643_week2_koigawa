@@ -2,17 +2,25 @@
 
 import altair as alt
 
-def get_ranking_chart(title, subtitle, data_input, metric_name, list_of_scale, width) -> alt.vegalite.v5.api.LayerChart:
+WIDTH_VISUALIZATION = 500
+
+def get_ranking_chart(
+        title,
+        subtitle,
+        data_input,
+        metric_name,
+        list_of_scale) -> alt.vegalite.v5.api.LayerChart:
     """
-    This function creates a visualization using Altair library where countries in input data are sorted
-    based on the performance at historical world cups.
+    This function creates a visualization using Altair library where
+    countries in input data are sorted based on the performance
+    at historical world cups.
         Parameters:
             title (String): A title for the visualization
             subtitle (String): A substitle for the visualization
             data_input (DataFrame): A DataFrame object for creating the visualization
             metric_name (String): The metric name used in the input DataFrame
-            list_of_scale (List): List that contains a scale range for the visualization (lower limit, upper limit)
-            width (Int): Width of the bar charts
+            list_of_scale (List): List that contains a scale range
+            for the visualization (lower limit, upper limit)
         Returns:
             (LayerChart) A chart created using altair library
     """
@@ -56,4 +64,4 @@ def get_ranking_chart(title, subtitle, data_input, metric_name, list_of_scale, w
         )
     )
 
-    return (ranking_viz + ranking_text_viz).properties(width=width)
+    return (ranking_viz + ranking_text_viz).properties(width=WIDTH_VISUALIZATION)

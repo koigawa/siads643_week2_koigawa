@@ -2,6 +2,7 @@
 
 import pandas as pd
 
+
 def load_csv_data(file_path) -> pd.DataFrame:
     """
     This function creates a dataframe from a csv file specified by file_path.
@@ -11,6 +12,7 @@ def load_csv_data(file_path) -> pd.DataFrame:
             (DataFrame): A dataframe created after reading the CSV
     """
     return pd.read_csv(file_path)
+
 
 def get_tournament_data(tournament_name, df) -> pd.DataFrame:
     """
@@ -22,5 +24,3 @@ def get_tournament_data(tournament_name, df) -> pd.DataFrame:
             (DataFrame): A dataframe with only relevant tournament data
     """
     return df[df.tournament == tournament_name].copy()
-
-
