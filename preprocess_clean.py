@@ -1,6 +1,6 @@
 """
 This module contains all the clean/preprocessing related functions
-Most of these functions are very specialized, and hence cannot be transferred to another dataset
+Most of these functions are very specialized, and hence cannot be transferred to another dataset.
 """
 
 import pandas as pd

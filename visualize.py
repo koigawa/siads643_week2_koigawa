@@ -1,6 +1,22 @@
+""" This module contains the visualize/chart making part """
+
 import altair as alt
 
-def return_ranking_chart(title, subtitle, data_input, metric_name, list_of_scale):
+def get_ranking_chart(title, subtitle, data_input, metric_name, list_of_scale, width) -> alt.vegalite.v5.api.LayerChart:
+    """
+    This function creates a visualization using Altair library where countries in input data are sorted
+    based on the performance at historical world cups.
+        Parameters:
+            title (String): A title for the visualization
+            subtitle (String): A substitle for the visualization
+            data_input (DataFrame): A DataFrame object for creating the visualization
+            metric_name (String): The metric name used in the input DataFrame
+            list_of_scale (List): List that contains a scale range for the visualization (lower limit, upper limit)
+            width (Int): Width of the bar charts
+        Returns:
+            (LayerChart) A chart created using altair library
+    """
+
     data_input = data_input.rename(columns={metric_name: "metric"})
 
     ranking_viz = (
@@ -40,4 +56,4 @@ def return_ranking_chart(title, subtitle, data_input, metric_name, list_of_scale
         )
     )
 
-    return (ranking_viz + ranking_text_viz).properties(width=180)
+    return (ranking_viz + ranking_text_viz).properties(width=width)
