@@ -3,6 +3,7 @@
 import altair as alt
 
 WIDTH_VISUALIZATION = 500
+BAR_COLOR = "#4899F3"
 
 def get_ranking_chart(
         title,
@@ -35,7 +36,7 @@ def get_ranking_chart(
                 subtitle=subtitle,
             ),
         )
-        .mark_bar(size=11, color="#4899F3")
+        .mark_bar(size=11, color=BAR_COLOR)
         .encode(
             x=alt.X(
                 "metric:Q",
