@@ -5,12 +5,14 @@ men's FIFA World Cup tournament. Please note that the cleaning process is specif
 to the file, so some functions won't run if correct values are not provided
 """
 from load import load_csv_data, get_tournament_data
-from clean import return_world_cup_result
+from clean import return_world_cup_result, combine_two_tournament_results, label_previous_champions
 
 FILE_URL = "results.csv"
 TOURNAMENT_NAME = "FIFA World Cup"
 COUNTRY_ONE = 'Qatar'
 COUNTRY_TWO = 'Russia'
+FIRST_CHAMPION = 'France'
+SECOND_CHAMPION = 'Argentina'
 
 if __name__ == "__main__":
     print('hello world')
@@ -18,6 +20,11 @@ if __name__ == "__main__":
     df = load_csv_data(FILE_URL)
     df = get_tournament_data(TOURNAMENT_NAME, df)
 
-    first_tournament = return_world_cup_result(df, "Qatar",TOURNAMENT_NAME)
+    first_tournament = return_world_cup_result(df, COUNTRY_ONE, TOURNAMENT_NAME)
+    second_tournament = return_world_cup_result(df, COUNTRY_TWO, TOURNAMENT_NAME)
 
-    print(first_tournament.head(5))
+    combined_df = combine_two_tournament_results(first_tournament,second_tournament)
+
+    combined_df = label_previous_champions(combined_df, FIRST_CHAMPION, SECOND_CHAMPION)
+
+    print(combined_df.head(10))

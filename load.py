@@ -1,3 +1,5 @@
+""" This module contains all the load related functions """
+
 import pandas as pd
 
 def load_csv_data(file_path) -> pd.DataFrame:
