@@ -20,7 +20,8 @@ https://www.kaggle.com/datasets/martj42/international-football-results-from-1872
 There are two arguments needed to run the script, the input file path and the output file path.
 The first input should be a file path, pointing to the csv file to be consumed.
 The second input should be a png file, which will contain the graph as output.
-It can be run, for example, like this: python3 main.py results.csv output.png
+It can be run, for example, like this: <br>
+**python3 main.py results.csv output.png**
 
 **Description of each scripts functionality**:<br>
 Each section of the original Jupyter notebook has been segmented based on what they did:
