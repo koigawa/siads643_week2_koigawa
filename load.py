@@ -2,7 +2,6 @@
 
 import pandas as pd
 
-
 def load_csv_data(file_path) -> pd.DataFrame:
     """
     This function creates a dataframe from a csv file specified by file_path.
