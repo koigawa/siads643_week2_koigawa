@@ -171,6 +171,8 @@ def label_previous_champions(
             df (DataFrame) A dataframe that combines the result of the
             two tournament plus champions labelled
     """
+
+    # Creates labels to mark previous winners
     df["is_former_champion"] = df.apply(
         lambda x: "Y"
         if x["country_name"] == first_champion or x["country_name"] == second_champion

@@ -37,20 +37,24 @@ if __name__ == "__main__":
         help="File path for the output visualization (PNG)")
     args = parser.parse_args()
 
+    # Loads the CSV data from input file
     df = load_csv_data(args.input_file)
     df = get_tournament_data(TOURNAMENT_NAME, df)
 
+    # This script looks to combine two World Cups
     first_tournament = return_world_cup_result(
         df, COUNTRY_ONE, TOURNAMENT_NAME)
     second_tournament = return_world_cup_result(
         df, COUNTRY_TWO, TOURNAMENT_NAME)
 
+    # Some additional pre-processing
     combined_df = combine_two_tournament_results(
         first_tournament, second_tournament)
 
     combined_df = label_previous_champions(
         combined_df, FIRST_CHAMPION, SECOND_CHAMPION)
 
+    # Produces the visualization
     get_ranking_chart(
         TITLE,
         SUBTITLE,

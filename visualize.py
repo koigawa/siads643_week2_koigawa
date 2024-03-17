@@ -28,6 +28,7 @@ def get_ranking_chart(
 
     data_input = data_input.rename(columns={metric_name: "metric"})
 
+    # Creates the visual content
     ranking_viz = (
         alt.Chart(
             data_input,
@@ -52,6 +53,7 @@ def get_ranking_chart(
         )
     )
 
+    # Creates text component of the visualization
     ranking_text_viz = (
         alt.Chart(data_input)
         .mark_text(dx=10, align="left")
